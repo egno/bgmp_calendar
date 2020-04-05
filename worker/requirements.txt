@@ -1,0 +1,5 @@
+requests[socks]
+PySocks
+asyncio
+asyncpg
+python-dotenv

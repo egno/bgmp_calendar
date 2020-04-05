@@ -1,0 +1,99 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    font-family: 'Roboto', sans-serif;
+    line-height: 1.4;
+    font-size: 16px;
+}
+
+@media screen and (max-width: 600px) {
+    html {
+        font-size: 8px;
+    }
+}
+
+#calendar {
+    margin: 2rem auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    max-width: 150rem;
+}
+
+.month {
+    margin: 1rem;
+}
+
+.month_label {
+    font-size: 1.8rem;
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    opacity: 0.5;
+}
+
+.month_label span {
+    margin-right: 1em;
+}
+
+.labels span {
+    text-align: center;
+    opacity: 0.4;
+}
+
+.labels,
+.dates {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: right;
+    grid-gap: 4px;
+}
+
+.dates>div {
+    border: 1px solid #e6e4e4;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    min-height: 2rem;
+}
+
+.labels div {
+    font-weight: 300;
+    text-align: center;
+    margin-bottom: 0.5rem;
+    opacity: 0.6;
+}
+
+.date_label {
+    letter-spacing: -1px;
+    font-weight: 700;
+    padding-right: 0.2rem;
+    opacity: 0.3;
+    min-width: 4.65em;
+}
+
+.times {
+    border: 0px none none;
+    padding-left: 0.2rem;
+    padding-right: 0.2rem;
+    flex-direction: row;
+    display: flex;
+}
+
+.time_label {
+    background-color: white;
+    height: 0.5rem;
+    width: 0.25rem;
+}
+
+.active {
+    background-color: green;
+}
+
+.dates>.active {
+    background-color: rgba(0, 255, 0, 0.1);
+}
