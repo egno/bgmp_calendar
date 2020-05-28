@@ -126,7 +126,7 @@ function generate_calendar() {
         n = d.getMonth(),
         y = d.getFullYear();
 
-    for (i = 0; i < 12; i++) {
+    for (i = 0; i < 13; i++) {
         gen_month({
             lang: 'en',
             offset: 1,

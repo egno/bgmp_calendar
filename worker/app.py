@@ -15,7 +15,7 @@ load_dotenv()
 URL = os.getenv('URL')
 PROXY = os.getenv('PROXY')
 TIMEOUT_SEC = 15
-DEEP_DAYS = 365
+DEEP_DAYS = 400
 
 def get_time(date):
     data = {

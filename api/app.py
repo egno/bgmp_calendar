@@ -1,6 +1,7 @@
 import asyncio
 import asyncpg
 from aiohttp import web
+import os
 import json
 import datetime
 
@@ -8,6 +9,9 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
+print(os.environ)
+print(f'asyncpg: {asyncpg.__version__}')
+print(f'json: {json.__version__}')
 
 queries = {
     'dates': '''
@@ -19,23 +23,25 @@ order by dt
         '''
 }
 
+
 def _converter(o):
     if isinstance(o, datetime.datetime):
         return o.__str__()
     if isinstance(o, datetime.date):
         return o.__str__()
 
+
 def _dumps(d):
-    return json.dumps(d, default = _converter)
+    return json.dumps(d, default=_converter)
 
 
 async def query(connection, query):
     await connection.set_type_codec(
-            'jsonb',
-            encoder=_dumps,
-            decoder=json.loads,
-            schema='pg_catalog'
-        )
+        'jsonb',
+        encoder=_dumps,
+        decoder=json.loads,
+        schema='pg_catalog'
+    )
     # Open a transaction.
     async with connection.transaction():
         # Run the query passing the request argument.

@@ -55,8 +55,9 @@ services:
 
   nginx: 
     image: nginx:latest
+    restart: always
     volumes:
-      - ./nginx.conf:/etc/nginx/nginx.conf
+      - ./web/nginx:/etc/nginx
       - ./web:/var/www/html
     links:
       - api:api
